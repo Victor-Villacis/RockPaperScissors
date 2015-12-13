@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   var gameState = {
     userScore: 0,
     computerScore: 0,
@@ -6,9 +6,9 @@ $(document).ready(function() {
   }
 
   $(".btn-info").click(function(){
-    var tagName = $(this).data("tag");
+    var tagName = $(this).attr("data-tag");
     gameState[tagName]++;
     $("#" + tagName).html(gameState[tagName]);
   });
 
-});
+});*/
