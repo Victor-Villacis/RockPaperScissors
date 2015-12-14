@@ -5,8 +5,7 @@ $(document).ready(function() {
     if($(this).attr("data-state") === "off") {
       $(this)
         .attr("data-state", "on")
-        .addClass("btn-success")
-        .removeClass("btn-danger")
+        .toggleClass("btn-success btn-danger")
         .html("STOP");
 
         bindControls();
@@ -14,8 +13,7 @@ $(document).ready(function() {
     } else {
        $(this)
         .attr("data-state", "off")
-        .removeClass("btn-success")
-        .addClass("btn-danger")
+        .toggleClass("btn-success btn-danger")
         .html("START UP AGAIN");
 
          $(".btn-info").off("click");
