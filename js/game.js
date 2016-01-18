@@ -24,32 +24,58 @@ $("#Paper").click(function() {
     });
   });
 
-var compare = function (userChoice, computerChoice) {
-    if (userChoice === computerChoice) {
-        return("The result is a tie!");
-    }
-    if (userChoice === "rock") {
-        if (computerChoice === "scissors") {
-            return ("rock wins");
-        } else {
-            return ("paper wins");
-        }
-    }
-    if (userChoice === "paper") {
-        if (computerChoice === "rock") {
-            return ("paper wins");
-        } else {
-            return ("scissors wins");
-        }
-    }
-     if (userChoice=== "scissors") {
-        if (computerChoice === "rock") {
-            return ("rock wins");
-        } else {
-            return ("scissors wins");
-        }
-    }
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+
+if (computerChoice < 0.34) {
+  computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+  computerChoice = "paper";
+} else {
+  computerChoice = "scissors";
+} 
+
+console.log("Computer choose: " + computerChoice);
+console.log("You choose:" + userChoice); 
+
+
+var compare = function (choice1, choice2) {
+    if(choice1 === choice2) {
+       return "The result is a tie";
+        }    
+    else if(choice1 === "scissors") 
+{
+    if (choice2 === "rock") {
+            return "rock wins"; }
+        else {
+            return "scissors wins";
+            }
+}
+        
+     else if(choice1 === "paper") 
+{
+    if (choice2 === "rock") {
+            return "paper wins"; }
+        else {
+            return "scissors wins";
+            }
+}
+
+        
+    else if(choice1 === "rock") 
+{
+    if (choice2 === "scissors") {
+            return "rock wins"; }
+        else {
+            return "paper wins";
+            }
+}
+           
+  
 };
+
+compare(userChoice, computerChoice);
+
 
 
 });
