@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+   <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+<body>
+
+  <head>
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <a id="clear" href="#" class="btn btn-mini">Clear Drop Target</a>                        
+          
+        </ul>
+      </div>
+    </nav>
+  </head>
+
+  <main>
+    <article class="center">
+      <h1 id="Hname1"></h1>
+      <h1>🎱</h1>
+      <div class="container">
+        <div class="row">
+          <div class="center" id="removeMe1">
+
+            <img src="/images/rock.png" id="rock" draggable="true"alt="" onmousedown="rocky1()">
+            <img src="/images/paper.png" id="paper" draggable="true" alt="" onmousedown="paper1()">
+            <img src="images/scissors.png" id="scissors" draggable="true" alt="" onmousedown="scissors1()">
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s5 left">
+          <div class="row">
+            <form id="form1" onsubmit="">
+              <div class="input-field col s12">
+                Player 1:<br>
+                <input type="text" id="fname1">
+                <input type="button" id="button1" onclick="subinfo()" value="submit input">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="center">
+        <span class="drop-zone" ondrop="clearChoice1()" id="target"></span>
+        <img src="images/vs.png" alt="">
+        <span class="drop-zone" ondrop="clearChoice()" id="target1"></span>
+        <h1 id="ok"></h1>
+    </article>
+
+
+
+    <article class="center">
+      <h1>🎮</h1>
+      <h1 id="Hname2"></h1>
+      <div class="container">
+        <div class="row">
+          <div class="center" id="removeMe">
+
+            <img src="/images/rock.png" id="rock1" draggable="true"alt="" onmousedown="rocky2()">
+            <img src="/images/paper.png" id="paper1" draggable="true" alt="" onmousedown="paper2()">
+            <img src="images/scissors.png" id="scissors1" draggable="true" alt="" onmousedown="scissors2()" >
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s5 right">
+          <div class="row">
+            <form id="form2" onsubmit="">
+              <div class="input-field col s12">
+                Player 2:<br>
+                <input type="text" id="fname2">
+                <input type="button" id="button2" onclick="subinfo2()" value="submit input">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <button class="btn" value="large" onclick="gameLogic()"></button>
+    </article>
+
+
+
+
+  </main>
+  
+   <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="player.js"></script>
+</body>
+</html>

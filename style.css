@@ -1,6 +1,61 @@
+.none {
+  display: none;
+}
+
+.faded{
+  opacity: 0;
+  pointer-events: none;
+}
+.animate__bounceOut {
+  --animate-duration: 2s;
+}
+h3 {
+  color: #fff;
+  font-size: 0%;
+  position: relative;
+  margin: 1px;
+  padding: -1px;
+}
+.img-responsive {
+  display: block;
+}
+
+.drop-zone {
+  height: 25rem;
+  width: 25rem;
+  background-color: rgba(33, 184, 151, 0.322);
+  border: 6px solid springgreen ;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 
-body {
+
+[data-role='drag-drop-target'] {
+  float: left;
+  width: 500px;
+  height: 376px;
+  margin: 10px;
+  padding: 10px;
+  border: 3px solid #ddd;
+  border-radius: 4px;
+}
+
+.over {
+  background-color: #ffc;
+}
+
+[draggable='true'] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.drag {
+  opacity: 0.25;
+}
+/* body {
   background-color: black;
 }
 
@@ -51,4 +106,4 @@ body {
   -o-text-overflow: clip;
   text-overflow: clip;
   text-shadow: -1px -1px 1px rgb(255,255,255) , 1px 1px 1px rgb(0,0,0) ;
-}
+} */
