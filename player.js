@@ -111,12 +111,17 @@ function scissors2() {
 
 function gameLogic() {
     if(localStorage.rocky1 === "rock" && localStorage.scissors2 === "scissors") {
-      let winner = document.querySelector('#ok')
+      (function () {
+        let winner = document.querySelector('#ok')
           winner.innerHTML = localStorage.rocky1
           setTimeout(function(){
             localStorage.removeItem('rocky1');
             localStorage.removeItem('scissors2');
+            location.reload();
           },3000)
+      }());  
+      
+     
       // console.log( `${localStorage.getItem("Hname1Text")} won with ${localStorage.rocky1}`)
     
   }  if(localStorage.rocky1 === "rock" && localStorage.paper2 === "paper") {
@@ -398,6 +403,7 @@ var dropped = function(e) {
     } else {
       types.forEach(function(type) {
         content = e.dataTransfer.getData(type);
+        localStorage.content = content
 
         var p = document.createElement('h3');
             p.innerHTML =  content;
@@ -445,3 +451,17 @@ clearButton.addEventListener('click', function(e) {
   e.preventDefault();
   target.innerHTML = '';
 });
+
+console.log(localStorage.content)
+let con = localStorage.content;
+let uj = new DOMParser().parseFromString(con, "text/html");
+console.log(uj.body.firstChild.id);
+// var xmlString = localStorage.content;
+// var doc = new DOMParser().parseFromString(xmlString, "text/xml");
+// console.log(doc.firstChild.innerHTML); // => <a href="#">Link...
+// console.log(doc.firstChild.firstChild.innerHTML); // => Link
+
+// console.log(localStorage.getItem("content").id)
+// console.log(localStorage.getItem("content"))
+// let condense = localStorage.getItem("content")
+// console.log(condense)
