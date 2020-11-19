@@ -6,6 +6,11 @@
   opacity: 0;
   pointer-events: none;
 }
+
+
+.dontTouch {
+  pointer-events: none;
+}
 .animate__bounceOut {
   --animate-duration: 2s;
 }
