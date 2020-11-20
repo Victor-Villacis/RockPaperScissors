@@ -20,5 +20,5 @@ The game works with two players on the same screen. It is drag and drop. It can 
 
 ### Future Implementations
 For sure add React for modulization. Currently the drag and drop is not working on mobile, this needs to addressed. Also add a server with Node.js
-
+Also need to add logic for when game is tied. 
 
