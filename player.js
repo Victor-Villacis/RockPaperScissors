@@ -64,8 +64,12 @@ if(localStorage.score2 === undefined) {
   localStorage.score2 = Number()
 }
 
+  player1.score = document.querySelector("#scoreNumber1") 
+                  player1.score.innerHTML = localStorage.score1
 
-
+  player2.score = document.querySelector("#scoreNumber2") 
+                  player2.score.innerHTML = localStorage.score2
+  // player1.img.innerHTML = localStorage.content1
 function gameLogic() {
 
 
@@ -83,19 +87,15 @@ function gameLogic() {
     if(a === "rock" && b === "scissors1") {
       (function () {
         let winner = document.querySelector('#ok')
-          winner.innerHTML = localStorage.content1
-       
-          player1.score = localStorage.score1
-          localStorage.score1++
-          player1.score = localStorage.score1
-          
-          console.log(player1.score)
-         
+        winner.innerHTML = `Winner is ${localStorage.Hname1Text} with ${localStorage.content1}`
+        player1.score = localStorage.score1
+        localStorage.score1++
+        player1.score = localStorage.score1
       }());  
   }  if(a === "rock" && b === "paper1") {
     (function () {
       let winner = document.querySelector('#ok')
-        winner.innerHTML = localStorage.content2
+        winner.innerHTML = `Winner is ${localStorage.Hname2Text} with ${localStorage.content2}`
         
         player2.score = localStorage.score2
         localStorage.score2++
@@ -106,7 +106,7 @@ function gameLogic() {
   }  if(a === "paper" && b === "rock1") {
     (function () {
       let winner = document.querySelector('#ok')
-        winner.innerHTML = localStorage.content1
+        winner.innerHTML = `Winner is ${localStorage.Hname1Text} with ${localStorage.content1}`
      
         player1.score = localStorage.score1
           localStorage.score1++
@@ -116,7 +116,7 @@ function gameLogic() {
   }  if(a === "paper" && b === "scissors1") {
     (function () {
       let winner = document.querySelector('#ok')
-        winner.innerHTML = localStorage.content2
+        winner.innerHTML = `Winner is ${localStorage.Hname2Text} with ${localStorage.content2}`
        
         player2.score = localStorage.score2
         localStorage.score2++
@@ -126,7 +126,7 @@ function gameLogic() {
   }  if(a === "scissors" && b === "paper1") {
     (function () {
       let winner = document.querySelector('#ok')
-        winner.innerHTML = localStorage.content1
+        winner.innerHTML = `Winner is ${localStorage.Hname1Text} with ${localStorage.content1}`
        
         player1.score = localStorage.score1
           localStorage.score1++
@@ -136,7 +136,7 @@ function gameLogic() {
   }  if(a === "scissors" && b === "rock1") {
     (function () {
       let winner = document.querySelector('#ok')
-        winner.innerHTML = localStorage.content2
+        winner.innerHTML = `Winner is ${localStorage.Hname2Text} with ${localStorage.content2}`
      
         player2.score = localStorage.score2
         localStorage.score2++
@@ -247,13 +247,13 @@ function clearBoth() {
 function dontTouch() {
 
   let clearOne = document.querySelector("#target");
-  clearOne.setAttribute('class', 'dontTouch');
+  clearOne.setAttribute('class', 'dontTouch drop-zone');
 }
 
 function dontTouch2() {
 
   let clearOne = document.querySelector("#target1");
-  clearOne.setAttribute('class', 'dontTouch');
+  clearOne.setAttribute('class', 'dontTouch drop-zone');
  
 }
 
@@ -264,9 +264,15 @@ function showPiece(){
         addPiece.innerHTML = localStorage.content2
         gameLogic()
       } else {
-        addPiece.innerHTML = "<img src='/images/tenor.gif' class='drop-zone'>"
+        addPiece.innerHTML = `<button class="btn red-text text-darken-2" id="refresh">${localStorage.Hname1Text} Click After Turn</button><img src='/images/tenor.gif' class='drop-zone'>`
+        btnTarget = document.querySelector('#refresh')
+        btnTarget.addEventListener('click', function() {
+        location.reload()
+           })
       }
 }
+
+
 
 function showPiece1(){
   let addPiece1 = document.querySelector("#target");
@@ -274,7 +280,12 @@ function showPiece1(){
         addPiece1.innerHTML = localStorage.content1
         gameLogic()
       } else {
-        addPiece1.innerHTML = "<img src='/images/tenor.gif' class='drop-zone'>"
+        addPiece1.innerHTML = `<button class=" btn red-text text-darken-2" id="refresh">${localStorage.Hname2Text} Click After Turn</button><img src='/images/tenor.gif' class='drop-zone'>`
+        btnTarget = document.querySelector('#refresh')
+        btnTarget.addEventListener('click', function() {
+        location.reload()
+        
+           })
       }
 }
 
@@ -285,7 +296,7 @@ function showPiece1(){
 
 //add a chat? ????????
 /// i will need node then to dynamically have an event loop and call upon the server for informtion. 
-
+//you will also need to add sesion storage as it is the only way to play thorugh broswe
 var cancel = function(e) {
   if (e.preventDefault) e.preventDefault();
   if (e.stopPropagation) e.stopPropagation();
@@ -368,12 +379,7 @@ var dropped = function(e) {
 };
 
 
-function showButton() {
-  showbtn = document.querySelector("#playAgain")
-        showbtn.classList.remove("none")
-}
 
-showButton()
 
 var target = document.getElementById('target');
 target.addEventListener('drop', dropped, false);
@@ -388,13 +394,22 @@ target.addEventListener('check', dropped, false);
 
 let playAgain = document.querySelector('#playAgain');
 playAgain.addEventListener('click', function(e) {
+  setTimeout(function(){
   localStorage.removeItem('content1');
   localStorage.removeItem('content2');
   location.reload()
+  }, 3500)
+  gameLogic();
 });
 
+
+//this will listen for an event listner and when it does it will fire across all windows. 
 // window.addEventListener('clearButton', function(e) {
 //   location.reload()
-  
 // })
 
+let newGame = document.querySelector('#clearGame');
+    newGame.addEventListener('click', function(e) {
+      localStorage.clear()
+      location.reload()
+    })

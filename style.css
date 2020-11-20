@@ -14,6 +14,17 @@
 .animate__bounceOut {
   --animate-duration: 2s;
 }
+
+animate__bounceInDown {
+  --animate-duration: 2s;
+
+}
+
+.red-text {
+  font-size: 25px;
+  background-color: orange;
+  border: 2px solid red;
+}
 h3 {
   color: #fff;
   font-size: 0%;
@@ -34,6 +45,13 @@ h3 {
   display: inline-block;
 }
 
+.drop-zone p {
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  margin-top: 10px;
+}
 
 
 [data-role='drag-drop-target'] {

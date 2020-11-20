@@ -20,7 +20,7 @@
     <nav>
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <a id="clear" href="#" class="btn btn-mini">Clear Drop Target</a>                        
+          <a id="clearGame" href="#" class="btn btn-mini">Reset Score and Players</a>                        
           
         </ul>
       </div>
@@ -30,7 +30,8 @@
   <main>
     <article class="center">
       <h1 id="Hname1"></h1>
-      <h1>🎱</h1>
+      <h1>Player 1🎱 Score is: <spanp id="scoreNumber1"></spanp> </h1>
+
       <div class="container">
         <div class="row">
           <div class="center" id="removeMe1">
@@ -42,33 +43,40 @@
           </div>
         </div>
       </div>
+
       <div class="row">
-        <div class="col s5 left">
+        <div class="col s12">
           <div class="row">
             <form id="form1" onsubmit="">
               <div class="input-field col s12">
-                Player 1:<br>
+                <h4>Player 1: Enter Name</h4><br>
                 <input type="text" id="fname1">
-                <input type="button" id="button1" onclick="subinfo()" value="submit input">
+                <input type="button" id="button1" class="btn" onclick="subinfo()" value="submit input">
               </div>
             </form>
           </div>
         </div>
       </div>
+
     </article>
 
     <article class="center">
-        <span class="drop-zone" ondrop="clearBoth(), dontTouch(), showPiece()" id="target">Player 1</span>
-        <img src="images/vs.png" alt="">
-        <button id="playAgain" class="btn none">Play Again</button>
-        <span class="drop-zone" ondrop="clearBoth(), dontTouch2(), showPiece1()" id="target1">Player 2</span>
+        <span class="drop-zone" ondrop="clearBoth(), dontTouch(), showPiece()" id="target"><p>Player 1 Drop Zone</p></span>
+        <button id="playAgain" class="btn drop-zone"><img src="images/vs.png" alt=""><span class="red-text text-darken-2">Click For Winner & Next Round</span></button>
+        <span class="drop-zone" ondrop="clearBoth(), dontTouch2(), showPiece1()" id="target1"><p>Player 2 Drop Zone</p></span>
+        <br>
+        <br>
         <h1 id="ok"></h1>
     </article>
+    
+    <article class="center none" id="lockedIn"> 
+      <button class="btn" value="large" onclick="gameLogic()">Lock In Score</button>
+    </article>
 
 
 
     <article class="center">
-      <h1>🎮</h1>
+      <h1> Player 2 🎮 Score is: <span id="scoreNumber2"></span></h1>
       <h1 id="Hname2"></h1>
       <div class="container">
         <div class="row">
@@ -82,20 +90,19 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s5 right">
+        <div class="col s12 center">
           <div class="row">
             <form id="form2" onsubmit="">
               <div class="input-field col s12">
-                Player 2:<br>
+                <h4>Player 2: Enter Name</h4><br>
                 <input type="text" id="fname2">
-                <input type="button" id="button2" onclick="subinfo2()" value="submit input">
+                <input type="button" id="button2" class="btn" onclick="subinfo2()" value="submit input">
               </div>
             </form>
           </div>
         </div>
       </div>
 
-        <button class="btn" value="large" onclick="gameLogic()"></button>
     </article>
 
 
