@@ -1,6 +1,6 @@
 #  Rock Paper Scissors JS Game
 
-A animation awesome cool drag and drop developer game
+A animation awesome cool drag and drop developer game. Open two tabs to play, so one player does not see the other players move. It is drag and drop. No need to enter names if you don't want to. 
 
   
 
