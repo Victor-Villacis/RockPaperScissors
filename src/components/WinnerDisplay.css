@@ -1,0 +1,250 @@
+.winner-display {
+  position: relative;
+  margin: 60px 0;
+  overflow: visible;
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  font-size: 2rem;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+}
+
+.winner-content {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
+  padding: 60px 40px;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.winner-emoji {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+  display: inline-block;
+}
+
+.winner-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.winner-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin: 0 0 40px 0;
+  font-weight: 500;
+}
+
+.match-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.match-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.choice-emoji-large {
+  font-size: 4rem;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+  display: block;
+}
+
+.choice-player {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.match-vs {
+  font-size: 2rem;
+  font-weight: 900;
+  background: var(--secondary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 0 10px;
+}
+
+.play-again-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  background: var(--success-gradient);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+}
+
+.play-again-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Tie game styling */
+.winner-display:has(.winner-title:contains("Tie")) .winner-title {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation for winner reveal */
+@keyframes bounce-in {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+  }
+  50% {
+    box-shadow: 0 15px 50px rgba(74, 222, 128, 0.5);
+  }
+}
+
+.play-again-btn {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .winner-content {
+    padding: 50px 30px;
+  }
+
+  .winner-emoji {
+    font-size: 5rem;
+  }
+
+  .winner-title {
+    font-size: 2rem;
+  }
+
+  .winner-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .match-summary {
+    gap: 20px;
+    padding: 25px;
+  }
+
+  .choice-emoji-large {
+    font-size: 3rem;
+  }
+
+  .match-vs {
+    font-size: 1.5rem;
+  }
+
+  .confetti {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .winner-display {
+    margin: 40px 0;
+  }
+
+  .winner-content {
+    padding: 40px 20px;
+    border-radius: 25px;
+  }
+
+  .winner-emoji {
+    font-size: 4rem;
+    margin-bottom: 15px;
+  }
+
+  .winner-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .winner-subtitle {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
+
+  .match-summary {
+    gap: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
+  .choice-emoji-large {
+    font-size: 2.5rem;
+  }
+
+  .choice-player {
+    font-size: 0.9rem;
+  }
+
+  .match-vs {
+    font-size: 1.2rem;
+  }
+
+  .play-again-btn {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
+
+  .confetti {
+    font-size: 1.2rem;
+  }
+}
